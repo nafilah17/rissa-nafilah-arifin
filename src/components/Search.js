@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {  Row, Col, Container, Form, Card, Button } from "react-bootstrap";
+import { BsGithub } from "react-icons/bs";
 import Profile from "./Profile";
 
 const Search = () => {
@@ -44,7 +45,8 @@ const Search = () => {
                     <Form.Control id="inlineFormInputName" placeholder="search github user" onChange={handleSearch} value={userInput} />
                   </Col>
                   <Col xs="auto">
-                    <Button type="submit">Search</Button>
+                    <Button type="submit" className="text-center">
+                      <BsGithub />{"   "}Search</Button>
                   </Col>
                 </Row>
               </Form>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {  Row, Col, Image, Form, Card, Button } from "react-bootstrap";
+import { BsFillPersonCheckFill, BsFillPeopleFill, BsFillBookFill } from "react-icons/bs";
 
 const Profile = ({ data, repositories}) => {
   
@@ -7,7 +8,7 @@ const Profile = ({ data, repositories}) => {
     <div className="mt-3">
         <Row>
           <Col xs={12} md={4}>
-            <div>
+            <div className="text-center">
             <Card>
               <Card.Img variant="top" src={data.avatar_url} />
                 <Card.Body>
@@ -19,21 +20,21 @@ const Profile = ({ data, repositories}) => {
                   <small className="text-muted">
                     <Row>
                       <Col>
-                        
+                      <BsFillPersonCheckFill />
                         <h6>
                           <strong>{data.followers}</strong>
                         </h6>
                         <p>Followers</p>
                       </Col>
                       <Col>
-                        
+                      <BsFillPeopleFill />
                         <h6>
                           <strong>{data.following}</strong>
                         </h6>
                         <p>Following</p>
                       </Col>
                       <Col>
-                        
+                        <BsFillBookFill />
                         <h6>
                           <strong>{data.public_repos}</strong>
                         </h6>
@@ -54,7 +55,7 @@ const Profile = ({ data, repositories}) => {
                     <Col xs={12} md={5} className="my-2">
                       <Card>
                         <Card.Body>
-                          <Card.Title>{repo.full_name}</Card.Title>
+                          <Card.Title>{repo.name}</Card.Title>
                           <Card.Text>
                             {repo.html_url}
                           </Card.Text>
