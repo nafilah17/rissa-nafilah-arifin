@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {  Row, Col, Container, Form, Card, Button } from "react-bootstrap";
 import { BsGithub } from "react-icons/bs";
 import Profile from "./Profile";
@@ -25,7 +25,7 @@ const Search = () => {
     // get repositories
     const repositories = await fetch(searchJson.repos_url)
     const repoJson = await repositories.json();
-    console.log('test search', repoJson)
+    // console.log('test search', repoJson)
 
     if(searchJson){
       setData(searchJson);
@@ -34,26 +34,26 @@ const Search = () => {
   }
 
   return (
-    <div className="mt-3">
+    <div>
       <Container>
-        <Row>
-          <Col xs={12} md={4}>
-            <div className="search">
-              <Form onSubmit={handleSubmit}>
-                <Row className="align-items-center">
-                  <Col>
-                    <Form.Control id="inlineFormInputName" placeholder="search github user" onChange={handleSearch} value={userInput} />
-                  </Col>
-                  <Col xs="auto">
-                    <Button type="submit" className="text-center">
-                      <BsGithub />{"   "}Search</Button>
-                  </Col>
-                </Row>
-              </Form>
-            </div>
+        <Row className="justify-content-md-center"> 
+          <Col xs={12} md={6} className="text-center">
+              <Card className="p-3">
+                <h5 className="mb-3"> Search your profile github here!</h5>
+                  <Form onSubmit={handleSubmit}>
+                    <Row className="align-items-center">
+                      <Col>
+                        <Form.Control id="inlineFormInputName" placeholder="Search github user" onChange={handleSearch} value={userInput} />
+                      </Col>
+                      <Col xs="auto">
+                        <Button type="submit" className="btn-search">
+                          <BsGithub />{"   "}Search</Button>
+                      </Col>
+                    </Row>
+                  </Form>
+              </Card>
           </Col>
           <Profile data={data} repositories={repositories} />
-          
         </Row>
         
       </Container>
