@@ -1,6 +1,6 @@
 import React from 'react';
-import {NavbarComponent, Profile, Overview} from './components';
-import { Container, Col, Row } from 'react-bootstrap';
+import {NavbarComponent,  Search} from './components';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
@@ -8,14 +8,7 @@ function App() {
    <NavbarComponent />
    <div className="mt-3">
         <Container>
-          <Row className="justify-content-md-center">
-            <Col xs={12} md={4}>
-              <Profile />
-            </Col>
-            <Col xs={12} md={8}>
-              <Overview />
-            </Col>
-          </Row>
+          <Search />
         </Container>
       </div>
    </>

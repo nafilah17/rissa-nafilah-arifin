@@ -1,18 +1,74 @@
-import React from 'react'
-import { Image } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import {  Row, Col, Image, Form, Card, Button } from "react-bootstrap";
 
-const Profile = () => {
+const Profile = ({ data, repositories}) => {
+  
   return (
-    <div className="text-center">
-    <Image
-      className="rounded-circle"
-      width={200}
-      height={200}
-      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-    />
-    <h4 className="mt-4">Rissa Nafilah</h4>
-  </div>
-  )
-}
+    <div className="mt-3">
+        <Row>
+          <Col xs={12} md={4}>
+            <div>
+            <Card>
+              <Card.Img variant="top" src={data.avatar_url} />
+                <Card.Body>
+                  <Card.Title>{data.name}</Card.Title>
+                    <h5>{data.userName}</h5>
+                    <h6>Joined in {data.createdAt}</h6>
+                </Card.Body>
+                <Card.Footer>
+                  <small className="text-muted">
+                    <Row>
+                      <Col>
+                        
+                        <h6>
+                          <strong>{data.followers}</strong>
+                        </h6>
+                        <p>Followers</p>
+                      </Col>
+                      <Col>
+                        
+                        <h6>
+                          <strong>{data.following}</strong>
+                        </h6>
+                        <p>Following</p>
+                      </Col>
+                      <Col>
+                        
+                        <h6>
+                          <strong>{data.public_repos}</strong>
+                        </h6>
+                        <p>Public Repos</p>
+                      </Col>
+                    </Row>
+                  </small>
+                </Card.Footer>
+              </Card>
+              </div>
+          </Col>
+            {/* repos */}
+          <Col>
+            <div>
+              <Row>
+                {/* repos cards */}
+                {repositories.map(repo => (
+                    <Col xs={12} md={5} className="my-2">
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>{repo.full_name}</Card.Title>
+                          <Card.Text>
+                            {repo.html_url}
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                    ))}
+              </Row>
+            </div>
+          </Col>
+        </Row>
+    </div>
+    
+  );
+};
 
-export default Profile
+export default Profile;
