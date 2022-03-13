@@ -55,8 +55,8 @@ const Search = () => {
           </Col>
           <Profile data={data} repositories={repositories} />
         </Row>
-        
       </Container>
+     
     </div>
     
   );

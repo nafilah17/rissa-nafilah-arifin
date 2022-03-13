@@ -47,25 +47,25 @@ const Profile = ({ data, repositories}) => {
           </Col>
             {/* repos */}
           <Col className="mt-3">
-           
-                {/* repos cards */}
-                <Card className="p-3">
-                  <Row>
-                    <h5>Your Repository</h5>
-                      {repositories.map(repo => (
-                        <Col xs={12} md={5} className="my-2">
-                          <Card>
-                            <Card.Body>
-                              <Card.Title>{repo.name}</Card.Title>
-                              <Card.Text>
-                                {repo.html_url}
-                              </Card.Text>
-                            </Card.Body>
-                          </Card>
-                        </Col>
-                      ))}
-                  </Row>
-                </Card>
+            <Card className="p-3">
+              <Row>
+                <h5>Your Repository</h5>
+                  {repositories.map(repo => (
+                    <Col xs={12} md={5} className="my-2">
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>{repo.name}</Card.Title>
+                          <Card.Link href={repo.html_url}>{repo.full_name}</Card.Link>
+                          {/* <Card.Link href={repo.html_url}> 
+                            {repo.html_url}
+                          </Card.Link> */}
+                          <p>{repo.language}</p>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+              </Row>
+            </Card>
           </Col>
         </Row>
     </div>
