@@ -8,7 +8,6 @@ const Search = () => {
   const [ data, setData ] = useState({})
   const [ repositories, setRepositories ] = useState([]);
 
-
   const handleSearch = (e) => {
     setUserInput(e.target.value)
     console.log('input', e.target.value)
@@ -16,12 +15,11 @@ const Search = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
-    // get profile
+    // get profile by user input
     const searchUser = await fetch(`https://api.github.com/users/${userInput}`)
     const searchJson = await searchUser.json();
     // console.log('test search', searchJson)
-
+    
     // get repositories
     const repositories = await fetch(searchJson.repos_url)
     const repoJson = await repositories.json();

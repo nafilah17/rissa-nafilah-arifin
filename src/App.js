@@ -6,11 +6,11 @@ function App() {
   return (
     <>
    <NavbarComponent />
-   <div className="mt-3">
-        <Container>
-          <Search />
-        </Container>
-      </div>
+    <div className="mt-3">
+      <Container>
+        <Search />
+      </Container>
+    </div>
    </>
   );
 }

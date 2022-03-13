@@ -5,7 +5,7 @@ const NavbarComponent = () => {
   return (
     <Navbar  variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <strong>Github-API</strong>
         </Navbar.Brand>
       </Container>

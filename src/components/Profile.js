@@ -7,9 +7,10 @@ const Profile = ({ data, repositories}) => {
   return (
     <div>
         <Row>
+          {/* profile */}
           <Col xs={12} md={4} className="mt-3">
             <div className="text-center">
-            <Card>
+            <Card key={data.id}>
               <Card.Img variant="top" src={data.avatar_url} />
                 <Card.Body>
                   <Card.Title>Profile</Card.Title>
@@ -47,19 +48,16 @@ const Profile = ({ data, repositories}) => {
           </Col>
             {/* repos */}
           <Col className="mt-3">
-            <Card className="p-3">
+            <Card className="p-3" >
               <Row>
                 <h5>Your Repository</h5>
                   {repositories.map(repo => (
                     <Col xs={12} md={5} className="my-2">
-                      <Card>
+                      <Card key={repo.id}>
                         <Card.Body>
                           <Card.Title>{repo.name}</Card.Title>
-                          <Card.Link href={repo.html_url}>{repo.full_name}</Card.Link>
-                          {/* <Card.Link href={repo.html_url}> 
-                            {repo.html_url}
-                          </Card.Link> */}
-                          <p>{repo.language}</p>
+                            <Card.Link href={repo.html_url}>{repo.full_name}</Card.Link>
+                              <p>{repo.language}</p>
                         </Card.Body>
                       </Card>
                     </Col>
